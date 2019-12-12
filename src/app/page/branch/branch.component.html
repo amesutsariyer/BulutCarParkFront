@@ -1,0 +1,19 @@
+<p>branch works!</p>
+<div *ngIf="active == 'list'">
+  <app-branch-list></app-branch-list>
+</div>
+<div *ngIf="active == 'add'">
+  <app-branch-add></app-branch-add>
+</div>
+<div *ngIf="active == 'update'">
+  <app-branch-update></app-branch-update>
+</div>
+<div *ngIf="active == 'delete'">
+  <app-branch-delete></app-branch-delete>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-secondary" (click)="openListComponent()">List</button>
+  <button type="button" class="btn btn-secondary" (click)="openAddComponent()">Add</button>
+  <button type="button" class="btn btn-secondary" (click)="openUpdateComponent()">Update</button>
+  <button type="button" class="btn btn-secondary" (click)="openDeleteComponent()">Delete</button>
+</div>

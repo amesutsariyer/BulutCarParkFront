@@ -1,0 +1,19 @@
+<p>user works!</p>
+<div *ngIf="active == 'list'">
+  <app-user-list></app-user-list>
+</div>
+<div *ngIf="active == 'add'">
+  <app-user-add></app-user-add>
+</div>
+<div *ngIf="active == 'update'">
+  <app-user-update></app-user-update>
+</div>
+<div *ngIf="active == 'delete'">
+  <app-user-delete></app-user-delete>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-secondary" (click)="openListComponent()">List</button>
+  <button type="button" class="btn btn-secondary" (click)="openAddComponent()">Add</button>
+  <button type="button" class="btn btn-secondary" (click)="openUpdateComponent()">Update</button>
+  <button type="button" class="btn btn-secondary" (click)="openDeleteComponent()">Delete</button>
+</div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-page',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public activatedroute: ActivatedRoute) {
+  }
+
+  activeChild: string;
 
   ngOnInit() {
+    this.activatedroute.data.subscribe(data => {
+      this.activeChild = data.child;
+    });
   }
 
 }
