@@ -1,0 +1,27 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+  <thead class="thead-light">
+  <tr>
+    <th scope="col">Başlangıç (Saat)</th>
+    <th scope="col">Bitiş (Saat)</th>
+    <th scope="col">Oluşturulma Tarihi</th>
+    <th scope="col">Güncellenme Tarihi</th>
+    <th scope="col">Aksiyonlar</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pricingPeriod of pricingPeriods">
+    <td>{{pricingPeriod.start}}</td>
+    <td>{{pricingPeriod.end}}</td>
+    <td>{{pricingPeriod.createdAt | date: 'dd-MM-yyyy hh:mm'}}</td>
+    <td>{{pricingPeriod.updatedAt | date: 'dd-MM-yyyy hh:mm'}}</td>
+    <td>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary" (click)="prepareForUpdate(pricingPeriod.id)"><i
+          class="fa fa-edit"></i></button>
+        <button type="button" class="btn btn-outline-danger" (click)="prepareForDelete(pricingPeriod.id)"><i
+          class="fa fa-trash"></i></button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>

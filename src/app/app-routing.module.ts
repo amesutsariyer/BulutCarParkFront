@@ -27,6 +27,12 @@ const routes: Routes = [
     component: PageComponent,
     canActivate: [LoginGuard],
     data: {child: 'dashboard'}
+  },
+  {
+    path: 'pricing-periods',
+    component: PageComponent,
+    canActivate: [LoginGuard],
+    data: {child: 'pricing-period', expectedRoles: 'ADMIN,SUPERADMIN'}
   }
 ];
 

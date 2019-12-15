@@ -1,25 +1,25 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../../../services/user.service';
-import {User} from '../../../models/user-models';
 import {Subject} from 'rxjs';
+import {PricingPeriod} from '../../../models/pricing-models';
 import {ComponentListenerService} from '../../../services/component-listener.service';
+import {PricingPeriodService} from '../../../services/pricing-period.service';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+  selector: 'app-pricing-period-list',
+  templateUrl: './pricing-period-list.component.html',
+  styleUrls: ['./pricing-period-list.component.scss']
 })
-export class UserListComponent implements OnInit {
+export class PricingPeriodListComponent implements OnInit {
 
   dtOptions: DataTables.Settings = {};
-  // users = new Array<User>();
-  users: User[] = [];
+  pricingPeriods: PricingPeriod[] = [];
   dtTrigger: Subject<any> = new Subject();
 
-  constructor(public userService: UserService, public componentListenerService: ComponentListenerService) {
+  constructor(public pricingPeriodService: PricingPeriodService, public componentListenerService: ComponentListenerService) {
   }
 
   ngOnInit() {
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 10,
@@ -47,14 +47,14 @@ export class UserListComponent implements OnInit {
         }
       }
     };
-    this.getAllUsers();
+    this.getAllPricingPeriods();
   }
 
-  getAllUsers() {
+  getAllPricingPeriods() {
 
-    this.userService.getAllUsers().subscribe((res: any) => {
+    this.pricingPeriodService.getAllPricingPeriods().subscribe((res: any) => {
 
-      this.users = res.data;
+      this.pricingPeriods = res.data;
 
       this.dtTrigger.next();
 
@@ -65,11 +65,12 @@ export class UserListComponent implements OnInit {
   }
 
   prepareForUpdate(id) {
-    this.componentListenerService.nextWithItemId('users', 'update', id);
+    this.componentListenerService.nextWithItemId('pricing-periods', 'update', id);
   }
 
   prepareForDelete(id) {
-    this.componentListenerService.nextWithItemId('users', 'delete', id);
+    this.componentListenerService.nextWithItemId('pricing-periods', 'delete', id);
 
   }
+
 }

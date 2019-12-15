@@ -60,21 +60,16 @@
         <li class="sidebar-dropdown">
           <a [routerLink]="">
             <i class="fa fa-chart-line"></i>
-            <span>Şubeler</span>
+            <span>Ödeme Periyotları</span>
           </a>
           <div class="sidebar-submenu">
             <ul>
               <li>
-                <a href="#">Pie chart</a>
+                <a routerLink="/pricing-periods">Tüm Ödeme Periyotları</a>
               </li>
               <li>
-                <a href="#">Line chart</a>
-              </li>
-              <li>
-                <a href="#">Bar chart</a>
-              </li>
-              <li>
-                <a href="#">Histogram</a>
+                <a routerLink="/pricing-periods" (click)="routeWithComponent('pricing-periods','add')">Yeni Ödeme
+                  Periyotu</a>
               </li>
             </ul>
           </div>

@@ -14,7 +14,7 @@ import {UserService} from '../../../services/user.service';
 })
 export class UserAddComponent implements OnInit {
 
-  @ViewChild(NgForm) newUserForm: NgForm;
+  @ViewChild(NgForm, {static: false}) newUserForm: NgForm;
   formControl = new FormControl('', [
     Validators.required
   ]);

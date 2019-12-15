@@ -16,7 +16,7 @@ export class ComponentListenerService {
     this.sidebarSubject.next(moduleName + '-' + componentName);
   }
 
-  next(moduleName: any, componentName: any, itemId: any) {
+  nextWithItemId(moduleName: any, componentName: any, itemId: any) {
     this.sidebarSubject.next(moduleName + '-' + componentName + '-' + itemId);
   }
 

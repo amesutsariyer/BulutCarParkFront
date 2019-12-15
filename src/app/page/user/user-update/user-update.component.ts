@@ -15,7 +15,7 @@ import {NgForm} from '@angular/forms';
 export class UserUpdateComponent implements OnInit {
 
   @Input('id') id: number;
-  @ViewChild(NgForm) editUserForm: NgForm;
+  @ViewChild(NgForm, {static: false}) editUserForm: NgForm;
   roles: Role[] = [];
   branches: Branch[] = [];
   user = new User();

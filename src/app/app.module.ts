@@ -30,6 +30,12 @@ import {RoleService} from './services/role.service';
 import {BranchService} from './services/branch.service';
 import {UserService} from './services/user.service';
 import {DigitOnlyModule} from '@uiowa/digit-only';
+import {PricingPeriodListComponent} from './page/pricing-period/pricing-period-list/pricing-period-list.component';
+import {PricingPeriodAddComponent} from './page/pricing-period/pricing-period-add/pricing-period-add.component';
+import {PricingPeriodUpdateComponent} from './page/pricing-period/pricing-period-update/pricing-period-update.component';
+import {PricingPeriodDeleteComponent} from './page/pricing-period/pricing-period-delete/pricing-period-delete.component';
+import {PricingPeriodComponent} from './page/pricing-period/pricing-period.component';
+import {PricingPeriodService} from './services/pricing-period.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +53,12 @@ import {DigitOnlyModule} from '@uiowa/digit-only';
     UserAddComponent,
     UserUpdateComponent,
     UserDeleteComponent,
-    DashboardComponent
+    DashboardComponent,
+    PricingPeriodListComponent,
+    PricingPeriodAddComponent,
+    PricingPeriodUpdateComponent,
+    PricingPeriodDeleteComponent,
+    PricingPeriodComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +76,7 @@ import {DigitOnlyModule} from '@uiowa/digit-only';
     RoleService,
     BranchService,
     UserService,
+    PricingPeriodService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

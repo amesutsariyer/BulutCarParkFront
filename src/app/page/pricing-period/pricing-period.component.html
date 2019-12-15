@@ -1,0 +1,25 @@
+<div *ngIf="active == 'add' || active == 'update' || active == 'delete'">
+  <button type="button" class="btn btn-outline-info" (click)="openListComponent()">
+    <i class="fa fa-list"></i> Listeye Dön
+  </button>
+</div>
+<div *ngIf="active == 'list'">
+  <button type="button" class="btn btn-outline-info" (click)="openAddComponent()">
+    <i class="fa fa-plus"></i> Yeni Periyot
+  </button>
+</div>
+
+<div style="margin-top: 35px;">
+  <div *ngIf="active == 'list'">
+    <app-pricing-period-list></app-pricing-period-list>
+  </div>
+  <div *ngIf="active == 'add'">
+    <app-pricing-period-add></app-pricing-period-add>
+  </div>
+  <div *ngIf="active == 'update'">
+    <app-pricing-period-update [id]="itemId"></app-pricing-period-update>
+  </div>
+  <div *ngIf="active == 'delete'">
+    <app-pricing-period-delete [id]="itemId"></app-pricing-period-delete>
+  </div>
+</div>
