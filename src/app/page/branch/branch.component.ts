@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ComponentListenerService} from '../../services/component-listener.service';
 
 @Component({
   selector: 'app-branch',
@@ -7,10 +8,17 @@ import {Component, OnInit} from '@angular/core';
 })
 export class BranchComponent implements OnInit {
 
-  constructor() {
-  }
+  active = 'list';
 
-  active: string = 'list';
+  constructor(public sidebarListener: ComponentListenerService) {
+
+    sidebarListener.sidebarCall.subscribe((res: any) => {
+      if (res === 'branches-add') {
+        this.active = 'add';
+      }
+    });
+
+  }
 
   ngOnInit() {
   }

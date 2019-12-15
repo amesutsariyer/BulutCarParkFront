@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from './login/login.component';
 import {PageComponent} from './page/page.component';
+import {LoginGuard} from './guard/login.guard';
 
 
 const routes: Routes = [
@@ -12,12 +13,20 @@ const routes: Routes = [
   {
     path: 'users',
     component: PageComponent,
-    data: { child: 'user' }
+    canActivate: [LoginGuard],
+    data: {child: 'user', expectedRoles: 'ADMIN,SUPERADMIN'}
   },
   {
     path: 'branches',
     component: PageComponent,
-    data: { child: 'branch' }
+    canActivate: [LoginGuard],
+    data: {child: 'branch', expectedRoles: 'ADMIN'}
+  },
+  {
+    path: 'dashboard',
+    component: PageComponent,
+    canActivate: [LoginGuard],
+    data: {child: 'dashboard'}
   }
 ];
 
@@ -25,4 +34,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

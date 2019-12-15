@@ -1,1 +1,21 @@
-<p>user-delete works!</p>
+<div class="container">
+
+  <div *ngIf="isSuccessful" class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Başarılı !</h4>
+    Kullanıcı başarıyla silindi.
+  </div>
+
+  <div class="jumbotron" *ngIf="!isSuccessful">
+    <div class="row">
+      <div class="col-md-12">
+        {{user.name + ' ' + user.surname }} adlı kullanıcı silmek istediğinizden emin misiniz?
+      </div>
+      <div class="col-md-12">
+        <div class="offset-10 col-md-2">
+          <button type="button" (click)="deleteUser()" class="btn btn-danger btn-block">Sil</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,12 +1,14 @@
 <app-sidebar></app-sidebar>
 <div class="page-wrapper chiller-theme toggled" style="font-family: 'Montserrat', sans-serif; font-size: 15px;">
   <main class="page-content">
-    <p>page works!</p>
     <div *ngIf="activeChild == 'branch'">
       <app-branch></app-branch>
     </div>
     <div *ngIf="activeChild == 'user'">
       <app-user></app-user>
+    </div>
+    <div *ngIf="activeChild == 'dashboard'">
+      <app-dashboard></app-dashboard>
     </div>
   </main>
 </div>

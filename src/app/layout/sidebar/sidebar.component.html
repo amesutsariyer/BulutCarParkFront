@@ -6,11 +6,11 @@
     </div>
     <div class="sidebar-header">
       <div class="user-info">
-          <span class="user-name">Ali Yektan
-            <strong>Mutlu</strong>
+          <span class="user-name">{{loggedUser.name}}
+            <strong>{{loggedUser.surname}}</strong>
           </span>
-        <span class="user-role">Otopark Yöneticisi</span>
-        <span class="user-role">0000000000</span>
+        <span class="user-role">{{loggedUser.role.name}}</span>
+        <span class="user-role">{{loggedUser.identityNumber}}</span>
       </div>
     </div>
     <div class="sidebar-menu">
@@ -19,76 +19,46 @@
           <span>Menü</span>
         </li>
         <li class="sidebar-dropdown">
-          <a href="#">
+          <a routerLink="/dashboard">
             <i class="fa fa-tachometer-alt"></i>
             <span>Dashboard</span>
-            <span class="badge badge-pill badge-warning">New</span>
           </a>
-          <div class="sidebar-submenu">
-            <ul>
-              <li>
-                <a href="#">Dashboard 1
-                  <span class="badge badge-pill badge-success">Pro</span>
-                </a>
-              </li>
-              <li>
-                <a href="#">Dashboard 2</a>
-              </li>
-              <li>
-                <a href="#">Dashboard 3</a>
-              </li>
-            </ul>
-          </div>
         </li>
         <li class="sidebar-dropdown">
-          <a href="#">
+          <a [routerLink]="">
             <i class="fa fa-shopping-cart"></i>
-            <span>Ücret Tarifeleri</span>
-            <span class="badge badge-pill badge-danger">3</span>
+            <span>Şubeler</span>
+            <!--<span class="badge badge-pill badge-danger">3</span>-->
           </a>
           <div class="sidebar-submenu">
             <ul>
               <li>
-                <a href="#">Products
-
-                </a>
+                <a routerLink="/branches">Tüm Şubeler</a>
               </li>
               <li>
-                <a href="#">Orders</a>
-              </li>
-              <li>
-                <a href="#">Credit cart</a>
+                <a routerLink="/branches" (click)="routeWithComponent('branches','add')">Yeni Şube</a>
               </li>
             </ul>
           </div>
         </li>
         <li class="sidebar-dropdown">
-          <a href="#">
+          <a [routerLink]="">
             <i class="far fa-gem"></i>
-            <span>Ücret Periyodları</span>
+            <span>Kullanıcılar</span>
           </a>
           <div class="sidebar-submenu">
             <ul>
               <li>
-                <a href="#">General</a>
+                <a routerLink="/users">Tüm Kullanıcılar</a>
               </li>
               <li>
-                <a href="#">Panels</a>
-              </li>
-              <li>
-                <a href="#">Tables</a>
-              </li>
-              <li>
-                <a href="#">Icons</a>
-              </li>
-              <li>
-                <a href="#">Forms</a>
+                <a routerLink="/users" (click)="routeWithComponent('users','add')">Yeni Kullanıcı</a>
               </li>
             </ul>
           </div>
         </li>
         <li class="sidebar-dropdown">
-          <a href="#">
+          <a [routerLink]="">
             <i class="fa fa-chart-line"></i>
             <span>Şubeler</span>
           </a>
@@ -110,7 +80,7 @@
           </div>
         </li>
         <li class="sidebar-dropdown">
-          <a href="#">
+          <a [routerLink]="">
             <i class="fa fa-globe"></i>
             <span>Faturalar</span>
           </a>
@@ -132,7 +102,7 @@
           <a href="#">
             <i class="fa fa-book"></i>
             <span>Araç Kapasitesi</span>
-            <span class="badge badge-pill badge-primary">Beta</span>
+            <!--<span class="badge badge-pill badge-primary">Beta</span>-->
           </a>
         </li>
         <li>
@@ -151,7 +121,7 @@
       <i class="fa fa-cog"></i>
       <span class="badge-sonar"></span>
     </a>
-    <a href="#">
+    <a routerLink="/login" (click)="logout()">
       <i class="fa fa-power-off"></i>
     </a>
   </div>

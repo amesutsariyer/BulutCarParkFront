@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="login-content">
+
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <div>
+          <img src="../../assets/img/login-icon.jpg" id="icon" alt="User Icon"/>
+        </div>
+        <div>
+          <h2>KULLANICI GİRİŞİ</h2>
+        </div>
+      </div>
+
+      <!-- Login Form -->
+      <form (submit)="submit()">
+        <input type="text" id="login" class="fadeIn second" name="username" [(ngModel)]="loginRequest.username"
+               placeholder="E-Mail Adresi">
+        <input type="password" id="password" class="fadeIn third" name="password" [(ngModel)]="loginRequest.password"
+               placeholder="Şifre">
+        <input type="submit" class="fadeIn fourth" value="Giriş">
+      </form>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Şifrenizi mi unuttunuz?</a>
+      </div>
+
+    </div>
+  </div>
+</div>
