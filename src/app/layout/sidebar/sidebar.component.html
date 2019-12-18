@@ -9,7 +9,7 @@
           <span class="user-name">{{loggedUser.name}}
             <strong>{{loggedUser.surname}}</strong>
           </span>
-        <span class="user-role">{{loggedUser.role.name}}</span>
+        <span class="user-role">{{loggedUser.role?.name}}</span>
         <span class="user-role">{{loggedUser.identityNumber}}</span>
       </div>
     </div>
@@ -18,7 +18,7 @@
         <li class="header-menu">
           <span>Menü</span>
         </li>
-        <li class="sidebar-dropdown">
+        <li>
           <a routerLink="/dashboard">
             <i class="fa fa-tachometer-alt"></i>
             <span>Dashboard</span>
@@ -59,6 +59,22 @@
         </li>
         <li class="sidebar-dropdown">
           <a [routerLink]="">
+            <i class="fa fa-globe"></i>
+            <span>Fiyat Tarifeleri</span>
+          </a>
+          <div class="sidebar-submenu">
+            <ul>
+              <li>
+                <a routerLink="/pricings">Tüm Tarifeler</a>
+              </li>
+              <li>
+                <a routerLink="/pricings" (click)="routeWithComponent('pricings','add')">Yeni Tarifesi</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="sidebar-dropdown">
+          <a [routerLink]="">
             <i class="fa fa-chart-line"></i>
             <span>Ödeme Periyotları</span>
           </a>
@@ -70,22 +86,6 @@
               <li>
                 <a routerLink="/pricing-periods" (click)="routeWithComponent('pricing-periods','add')">Yeni Ödeme
                   Periyotu</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="sidebar-dropdown">
-          <a [routerLink]="">
-            <i class="fa fa-globe"></i>
-            <span>Faturalar</span>
-          </a>
-          <div class="sidebar-submenu">
-            <ul>
-              <li>
-                <a href="#">Google maps</a>
-              </li>
-              <li>
-                <a href="#">Open street map</a>
               </li>
             </ul>
           </div>

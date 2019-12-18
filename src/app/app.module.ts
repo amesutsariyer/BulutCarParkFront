@@ -36,6 +36,12 @@ import {PricingPeriodUpdateComponent} from './page/pricing-period/pricing-period
 import {PricingPeriodDeleteComponent} from './page/pricing-period/pricing-period-delete/pricing-period-delete.component';
 import {PricingPeriodComponent} from './page/pricing-period/pricing-period.component';
 import {PricingPeriodService} from './services/pricing-period.service';
+import {PricingComponent} from './page/pricing/pricing.component';
+import {PricingListComponent} from './page/pricing/pricing-list/pricing-list.component';
+import {PricingAddComponent} from './page/pricing/pricing-add/pricing-add.component';
+import {PricingUpdateComponent} from './page/pricing/pricing-update/pricing-update.component';
+import {PricingDeleteComponent} from './page/pricing/pricing-delete/pricing-delete.component';
+import {CurrencyMaskModule} from 'ng2-currency-mask';
 
 @NgModule({
   declarations: [
@@ -58,7 +64,12 @@ import {PricingPeriodService} from './services/pricing-period.service';
     PricingPeriodAddComponent,
     PricingPeriodUpdateComponent,
     PricingPeriodDeleteComponent,
-    PricingPeriodComponent
+    PricingPeriodComponent,
+    PricingComponent,
+    PricingListComponent,
+    PricingAddComponent,
+    PricingUpdateComponent,
+    PricingDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +78,8 @@ import {PricingPeriodService} from './services/pricing-period.service';
     HttpClientModule,
     BrowserAnimationsModule,
     DataTablesModule,
-    DigitOnlyModule
+    DigitOnlyModule,
+    CurrencyMaskModule
   ],
   providers: [
     LoginService,

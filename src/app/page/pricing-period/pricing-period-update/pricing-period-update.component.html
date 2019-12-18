@@ -10,7 +10,7 @@
     Böyle bir periyot zaten mevcut.
   </div>
 
-  <form (submit)="updatePricingPriod()" #editPricingPeriodForm="ngForm">
+  <form (submit)="updatePricingPeriod()" #editPricingPeriodForm="ngForm">
     <div class="row">
       <div class="form-group col-md-6">
         <label for="inputStart">Başlangıç (Saat)</label>
@@ -25,12 +25,12 @@
         <small id="endHelp" class="form-text text-danger">* Bitiş alanı zorunludur</small>
       </div>
     </div>
-    <div class="col-md-6 row">
+    <div class="col-md-6 p-0 row">
       <div class="col-md-6">
         <button type="submit" [disabled]="!editPricingPeriodForm.valid" class="btn btn-primary btn-block">Güncelle
         </button>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 pr-0">
         <button type="reset" (click)="resetForm(editPricingPeriodForm)"
                 class="btn btn-warning btn-block">Temizle
         </button>

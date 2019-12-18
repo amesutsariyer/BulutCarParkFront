@@ -1,0 +1,37 @@
+<div class="container">
+
+  <div *ngIf="isSuccessful" class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Başarılı !</h4>
+    Periyot başarıyla güncellendi.
+  </div>
+
+  <div *ngIf="hasError" class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Hata !</h4>
+    Böyle bir periyot zaten mevcut.
+  </div>
+
+  <form (submit)="updatePricing()" #editPricingForm="ngForm">
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="roleSelect">Periyot</label>
+        <select class="form-control" id="roleSelect" name="roleSelect" [(ngModel)]="pricing.pricingPeriod" disabled [compareWith]="compareFn" required>
+          <option *ngFor="let period of pricingPeriods" [ngValue]="period">Başlangıç: {{ period.start }} - Bitiş: {{period.end}}</option>
+        </select>
+        <small id="periodHelp" class="form-text text-danger">* Periyot alanı zorunludur</small>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPrice">Fiyat (₺)</label>
+        <input type="text" class="form-control" id="inputPrice" name="inputPrice" min="0"
+               currencyMask [options]="currencyMaskOptions" autocomplete="off"
+               placeholder="Fiyat bilgisi giriniz" #price [(ngModel)]="pricing.price" required>
+        <small id="priceHelp" class="form-text text-danger">* Fiyat alanı zorunludur</small>
+      </div>
+    </div>
+    <div class="col-md-6 p-0 row">
+      <div class="col-md-6">
+        <button type="submit" [disabled]="!editPricingForm.valid" class="btn btn-primary btn-block">Güncelle
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

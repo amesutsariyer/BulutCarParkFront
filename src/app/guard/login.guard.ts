@@ -14,9 +14,9 @@ export class LoginGuard implements CanActivate {
 
     const userCreds = JSON.parse(localStorage.getItem('credentials'));
 
-    const expectedRoles = route.data.expectedRoles;
+    const allowedRoles = route.data.allowedRoles;
 
-    if (expectedRoles == null) {
+    if (allowedRoles == null) {
       return true;
     }
 
@@ -28,7 +28,7 @@ export class LoginGuard implements CanActivate {
       } else {
         const currentRole = userCreds.role;
 
-        if (this.matchRoles(expectedRoles, currentRole)) {
+        if (this.matchRoles(allowedRoles, currentRole)) {
           return true;
         } else {
           this.router.navigate(['/dashboard']);

@@ -10,27 +10,27 @@
     Böyle bir periyot zaten mevcut.
   </div>
 
-  <form (submit)="createPricingPriod()" #newPricingPeriodForm="ngForm">
+  <form (submit)="createPricingPeriod()" #newPricingPeriodForm="ngForm">
     <div class="row">
       <div class="form-group col-md-6">
         <label for="inputStart">Başlangıç (Saat)</label>
         <input type="number" class="form-control" id="inputStart" name="inputStart"
-               placeholder="Başlangıç giriniz" #start [(ngModel)]="pricingPeriod.start" required>
+               placeholder="Başlangıç giriniz" min="0" max="23" #start [(ngModel)]="pricingPeriod.start" required>
         <small id="startHelp" class="form-text text-danger">* Başlangıç alanı zorunludur</small>
       </div>
       <div class="form-group col-md-6">
         <label for="inputEnd">Bitiş (Saat)</label>
         <input type="number" class="form-control" id="inputEnd" name="inputEnd"
-               placeholder="Bitiş giriniz" #end [(ngModel)]="pricingPeriod.end" required>
+               placeholder="Bitiş giriniz" [min]="pricingPeriod.start" max="24" #end [(ngModel)]="pricingPeriod.end" required>
         <small id="endHelp" class="form-text text-danger">* Bitiş alanı zorunludur</small>
       </div>
     </div>
-    <div class="col-md-6 row">
+    <div class="col-md-6 p-0 row">
       <div class="col-md-6">
         <button type="submit" [disabled]="!newPricingPeriodForm.valid" class="btn btn-primary btn-block">Oluştur
         </button>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 pr-0">
         <button type="reset" (click)="resetForm(newPricingPeriodForm)"
                 class="btn btn-warning btn-block">Temizle
         </button>

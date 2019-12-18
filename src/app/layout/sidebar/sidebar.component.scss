@@ -407,8 +407,9 @@ body {
 
 .chiller-theme .sidebar-wrapper {
   //background: #31353D;
-  background-image: linear-gradient(#C33764, #1D2671);
-
+  //background-image: linear-gradient(#C33764, #1D2671);
+  //background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+  background-image: linear-gradient(-225deg, #473B7B 0%, #3584A7 75%, #30D2BE 100%);
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-header,
@@ -471,8 +472,8 @@ body {
 
 .chiller-theme .sidebar-footer {
   background: #3a3f48;
-  box-shadow: 0px -1px 5px #282c33;
-  border-top: 1px solid #464a52;
+  //box-shadow: 0px -1px 5px #282c33;
+  //border-top: 1px solid #464a52;
 }
 
 .chiller-theme .sidebar-footer>a:first-child {

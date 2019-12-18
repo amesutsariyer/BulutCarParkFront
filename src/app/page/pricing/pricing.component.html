@@ -1,0 +1,25 @@
+<div *ngIf="active == 'add' || active == 'update' || active == 'delete'">
+  <button type="button" class="btn btn-outline-info" (click)="openListComponent()">
+    <i class="fa fa-list"></i> Listeye Dön
+  </button>
+</div>
+<div *ngIf="active == 'list'">
+  <button type="button" class="btn btn-outline-info" (click)="openAddComponent()">
+    <i class="fa fa-plus"></i> Yeni Fiyat Tarifesi
+  </button>
+</div>
+
+<div style="margin-top: 35px;">
+  <div *ngIf="active == 'list'">
+    <app-pricing-list></app-pricing-list>
+  </div>
+  <div *ngIf="active == 'add'">
+    <app-pricing-add></app-pricing-add>
+  </div>
+  <div *ngIf="active == 'update'">
+    <app-pricing-update [id]="itemId"></app-pricing-update>
+  </div>
+  <div *ngIf="active == 'delete'">
+    <app-pricing-delete [id]="itemId"></app-pricing-delete>
+  </div>
+</div>

@@ -14,13 +14,13 @@ const routes: Routes = [
     path: 'users',
     component: PageComponent,
     canActivate: [LoginGuard],
-    data: {child: 'user', expectedRoles: 'ADMIN,SUPERADMIN'}
+    data: {child: 'user', allowedRoles: 'ADMIN,SUPERADMIN'}
   },
   {
     path: 'branches',
     component: PageComponent,
     canActivate: [LoginGuard],
-    data: {child: 'branch', expectedRoles: 'ADMIN'}
+    data: {child: 'branch', allowedRoles: 'ADMIN'}
   },
   {
     path: 'dashboard',
@@ -32,7 +32,13 @@ const routes: Routes = [
     path: 'pricing-periods',
     component: PageComponent,
     canActivate: [LoginGuard],
-    data: {child: 'pricing-period', expectedRoles: 'ADMIN,SUPERADMIN'}
+    data: {child: 'pricing-period', allowedRoles: 'ADMIN,SUPERADMIN'}
+  },
+  {
+    path: 'pricings',
+    component: PageComponent,
+    canActivate: [LoginGuard],
+    data: {child: 'pricing', allowedRoles: 'ADMIN,SUPERADMIN'}
   }
 ];
 

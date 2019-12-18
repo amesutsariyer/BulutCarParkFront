@@ -24,7 +24,7 @@ export class PricingPeriodAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  createPricingPriod() {
+  createPricingPeriod() {
 
     this.pricingPeriodService.savePricingPeriod(this.pricingPeriod).subscribe((res: any) => {
       this.isSuccessful = true;

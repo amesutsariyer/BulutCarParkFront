@@ -1,0 +1,29 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+  <thead class="thead-light">
+  <tr>
+    <th scope="col">Başlangıç (Saat)</th>
+    <th scope="col">Bitiş (Saat)</th>
+    <th scope="col">Fiyat (₺)</th>
+    <th scope="col">Oluşturulma Tarihi</th>
+    <th scope="col">Güncellenme Tarihi</th>
+    <th scope="col">Aksiyonlar</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pricing of pricings">
+    <td>{{pricing.pricingPeriod.start}}</td>
+    <td>{{pricing.pricingPeriod.end}}</td>
+    <td>{{pricing.price | currency: 'TRY':'symbol-narrow'}}</td>
+    <td>{{pricing.createdAt | date: 'dd-MM-yyyy hh:mm'}}</td>
+    <td>{{pricing.updatedAt | date: 'dd-MM-yyyy hh:mm'}}</td>
+    <td>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary" (click)="prepareForUpdate(pricing.id)"><i
+          class="fa fa-edit"></i></button>
+        <button type="button" class="btn btn-outline-danger" (click)="prepareForDelete(pricing.id)"><i
+          class="fa fa-trash"></i></button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>

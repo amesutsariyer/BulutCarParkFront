@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div *ngIf="isSuccessful" class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Başarılı !</h4>
+    Fiyat tarifesi başarıyla silindi.
+  </div>
+
+  <div class="jumbotron" *ngIf="!isSuccessful">
+    <div class="row">
+      <div class="col-md-12" style="margin-bottom: 15px;">
+        <strong>Başlangıç:</strong>
+        {{pricing.pricingPeriod.start}} saat -
+        <strong>Bitiş:</strong>
+        {{pricing.pricingPeriod.end }} saat -
+        <strong>Fiyat:</strong>
+        {{pricing.price | currency: 'TRY':'symbol-narrow'}}  olan ödeme periyodunu silmek istediğinizden
+        emin misiniz?
+      </div>
+      <div class="col-md-12">
+        <div class="offset-10 col-md-2">
+          <button type="button" (click)="deletePricingPeriod()" class="btn btn-danger btn-block">Sil</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
