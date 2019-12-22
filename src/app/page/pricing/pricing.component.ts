@@ -12,7 +12,7 @@ export class PricingComponent implements OnInit {
   itemId: any;
 
   constructor(public sidebarListener: ComponentListenerService) {
-    sidebarListener.sidebarCall.subscribe((res: any) => {
+    sidebarListener.componentCall.subscribe((res: any) => {
       if (res === 'pricings-add') {
         this.active = 'add';
       } else if (res.indexOf('pricings-update') >= 0) {

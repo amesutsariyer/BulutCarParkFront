@@ -1,0 +1,60 @@
+.tr-lincence {
+  min-height: 100px;
+  max-height: 100px;
+  width: 100%;
+  border: #0d0d0d 2px solid;
+  border-radius: 10px;
+  z-index: 888;
+  padding-bottom: 1px;
+  height: max-content;
+  overflow: hidden;
+  position: relative;
+}
+
+.tr-lincence > .blue-tr {
+  background: #113fff;
+  overflow: auto;
+  height: 100%;
+  width: 15%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.tr-lincence > input {
+  text-align: center;
+  text-transform: uppercase;
+  overflow: auto;
+  height: 100%;
+  width: 85%;
+  position: absolute;
+  font-size: 55px;
+  right: 0;
+  top: 0;
+}
+
+.tr-lincence > input::placeholder {
+  text-align: center;
+
+  overflow: auto;
+  height: 100%;
+  width: 85%;
+  position: absolute;
+  font-size: 40px;
+  right: 0;
+  top: 0;
+}
+
+.tr-lincence > .blue-tr > strong {
+  position: absolute;
+  color: white;
+  font-size: 25px;
+  right: 25%;
+  bottom: 20%;
+}
+//
+//.fixed-top-right{
+//  position: absolute;
+//  top: 2%;
+//  right: 2%;
+//}

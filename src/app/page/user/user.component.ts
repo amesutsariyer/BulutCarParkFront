@@ -13,7 +13,7 @@ export class UserComponent implements OnInit {
 
   constructor(public sidebarListener: ComponentListenerService) {
 
-    sidebarListener.sidebarCall.subscribe((res: any) => {
+    sidebarListener.componentCall.subscribe((res: any) => {
       if (res === 'users-add') {
         this.active = 'add';
       } else if (res.indexOf('users-update') >= 0) {
@@ -49,4 +49,5 @@ export class UserComponent implements OnInit {
   openDeleteComponent() {
     this.active = 'delete';
   }
+
 }

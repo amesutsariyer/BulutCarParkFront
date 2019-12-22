@@ -8,19 +8,20 @@ import {LoginGuard} from './guard/login.guard';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    data: {isLoginPage: true}
   },
   {
     path: 'users',
     component: PageComponent,
-    canActivate: [LoginGuard],
-    data: {child: 'user', allowedRoles: 'ADMIN,SUPERADMIN'}
+    data: {child: 'user', allowedRoles: 'ADMIN,SUPERADMIN'},
+    canActivate: [LoginGuard]
   },
   {
     path: 'branches',
     component: PageComponent,
     canActivate: [LoginGuard],
-    data: {child: 'branch', allowedRoles: 'ADMIN'}
+    data: {child: 'branch', allowedRoles: 'ADMIN,SUPERADMIN'}
   },
   {
     path: 'dashboard',
@@ -39,6 +40,12 @@ const routes: Routes = [
     component: PageComponent,
     canActivate: [LoginGuard],
     data: {child: 'pricing', allowedRoles: 'ADMIN,SUPERADMIN'}
+  },
+  {
+    path: 'change-password',
+    component: PageComponent,
+    canActivate: [LoginGuard],
+    data: {child: 'change-password', allowedRoles: 'USER,ADMIN,SUPERADMIN'}
   }
 ];
 

@@ -3,7 +3,9 @@
   <div class="wrapper fadeInDown">
     <div id="formContent">
       <!-- Tabs Titles -->
-
+      <div *ngIf="hasError" class="alert alert-danger" role="alert">
+        Kullanıcı adı veya şifre hatalı, tekrar deneyiniz.
+      </div>
       <!-- Icon -->
       <div class="fadeIn first">
         <div>
@@ -25,7 +27,9 @@
 
       <!-- Remind Passowrd -->
       <div id="formFooter">
-        <a class="underlineHover" href="#">Şifrenizi mi unuttunuz?</a>
+        <a class="underlineHover" routerLink="/login">Bulut Otopark
+          <i class="fa fa-copyright"></i>
+          2019</a>
       </div>
 
     </div>

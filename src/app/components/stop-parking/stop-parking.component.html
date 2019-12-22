@@ -1,0 +1,153 @@
+<div class="fixed-top-right">
+  <button [disabled]="disabled" type="button" class="btn btn-outline-dark" data-toggle="modal"
+          data-target="#stopParking">
+    Araç Çıkışı
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="stopParking" tabindex="-1" role="dialog" aria-labelledby="startParking"
+       data-keyboard="false" data-backdrop="static" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Araç Çıkışı</h5>
+
+        </div>
+
+
+        <form (submit)="getInvoice()" #parkingEventForm="ngForm" *ngIf="invoice == null">
+
+          <div *ngIf="hasError" class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Hata !</h4>
+            {{ message }}
+          </div>
+
+          <div *ngIf="isSuccess" class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Başarılı !</h4>
+            {{message}}
+          </div>
+
+          <div class="modal-body">
+
+            <div class="tr-lincence">
+              <div class="blue-tr">
+                <strong>
+                  TR
+                </strong>
+              </div>
+              <input type="text" class="form-control" id="inputStop" name="inputStop"
+                     (input)="toUpperCaseLN()"
+                     maxlength="9" [(ngModel)]="licenseNumber.licenseNumber" autocomplete="off"
+                     [pattern]="regexp" placeholder="Araç Plakası" required>
+            </div>
+
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+            <button type="submit" [disabled]="!parkingEventForm.valid" class="btn btn-warning">Araç Çıkışı</button>
+          </div>
+
+        </form>
+
+        <ng-container *ngIf="invoice != null">
+
+          <div class="modal-body">
+
+            <div *ngIf="hasError" class="alert alert-danger" role="alert">
+              <h4 class="alert-heading">Hata !</h4>
+              {{ message }}
+            </div>
+
+            <div *ngIf="isSuccess" class="alert alert-success" role="alert">
+              <h4 class="alert-heading">Başarılı !</h4>
+              {{message}}
+            </div>
+
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-action active">Fatura Detayları</li>
+              <li class="list-group-item ">
+                <div class="row">
+                  <div class="col-md-4">
+                    Şube:
+                  </div>
+                  <div class="col-md-8">
+                    {{ invoice.parkingEvent.currentBranch.name }}
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item ">
+                <div class="row">
+                  <div class="col-md-4">
+                    Ücret:
+                  </div>
+                  <div class="col-md-8">
+                    {{invoice.price | currency: 'TRY':'symbol-narrow'}}
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item ">
+                <div class="row">
+                  <div class="col-md-4">
+                    Araç Plakası:
+                  </div>
+                  <div class="col-md-8">
+                    {{ invoice.parkingEvent.licenseNumber}}
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item ">
+                <div class="row">
+                  <div class="col-md-4">
+                    Başlangıç:
+                  </div>
+                  <div class="col-md-8">
+                    {{ invoice.parkingEvent.startDate | date: 'dd-MM-yyyy hh:mm' }}
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item ">
+                <div class="row">
+                  <div class="col-md-4">
+                    Bitiş:
+                  </div>
+                  <div class="col-md-8">
+                    {{ invoice.parkingEvent.endDate | date: 'dd-MM-yyyy hh:mm' }}
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item ">
+                <div class="row">
+                  <div class="col-md-4">
+                    Durumu:
+                  </div>
+                  <div class="col-md-8">
+                    {{ invoice.paid ? 'ÖDENDİ' : 'ÖDENMEDİ' }}
+                  </div>
+                </div>
+              </li>
+              <li class="list-group-item ">
+                <div class="row">
+                  <div class="col-md-4">
+                    Görevli:
+                  </div>
+                  <div class="col-md-8">
+                    {{ invoice.parkingEvent.creator.name + ' ' + invoice.parkingEvent.creator.surname}}
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" [disabled]="!invoice.paid" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+            <button type="button" [disabled]="invoice.paid" (click)="confirmInvoice()" class="btn btn-warning">Ödemeyi Onayla</button>
+          </div>
+
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,23 @@
-<p>branch-delete works!</p>
+<div class="container">
+
+  <div *ngIf="isSuccessful" class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Başarılı !</h4>
+    Şube başarıyla silindi.
+  </div>
+
+  <div class="jumbotron" *ngIf="!isSuccessful">
+    <div class="row">
+      <div class="col-md-12">
+        {{branch.name}} adlı şubeyi silmek istediğinizden emin misiniz?,
+        <br>
+        <small class="text-danger"> Sildiğiniz takdirde bu şubeye bağlı tüm kullanıcılar ve veriler silinecektir. </small>
+      </div>
+      <div class="col-md-12">
+        <div class="offset-10 col-md-2">
+          <button type="button" (click)="deleteBranch()" class="btn btn-danger btn-block">Sil</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

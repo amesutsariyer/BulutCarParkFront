@@ -1,0 +1,20 @@
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Şube Adı</th>
+      <th scope="col">Araç Plakası</th>
+      <th scope="col">Başlangıç</th>
+      <th scope="col">Bitiş</th>
+      <th scope="col">Görevli</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let parkingEvent of parkingEvents">
+      <td>{{parkingEvent.currentBranch.name}}</td>
+      <td>{{parkingEvent.licenseNumber}}</td>
+      <td>{{parkingEvent.startDate | date: 'dd-MM-yyyy hh:mm'}}</td>
+      <td>{{parkingEvent.endDate | date: 'dd-MM-yyyy hh:mm'}}</td>
+      <td>{{parkingEvent.creator.name + ' ' + parkingEvent.creator.surname}}</td>
+    </tr>
+  </tbody>
+</table>

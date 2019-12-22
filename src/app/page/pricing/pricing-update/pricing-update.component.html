@@ -15,7 +15,9 @@
       <div class="form-group col-md-6">
         <label for="roleSelect">Periyot</label>
         <select class="form-control" id="roleSelect" name="roleSelect" [(ngModel)]="pricing.pricingPeriod" disabled [compareWith]="compareFn" required>
-          <option *ngFor="let period of pricingPeriods" [ngValue]="period">Başlangıç: {{ period.start }} - Bitiş: {{period.end}}</option>
+          <option *ngFor="let period of pricingPeriods" [ngValue]="period">
+            {{ period.start }} - {{period.end}} saat
+          </option>
         </select>
         <small id="periodHelp" class="form-text text-danger">* Periyot alanı zorunludur</small>
       </div>

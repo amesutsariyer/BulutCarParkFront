@@ -4,6 +4,7 @@ import {LoginResponse} from '../models/login-models';
 import {BehaviorSubject} from 'rxjs';
 import {Urls} from '../utils/urls';
 import {ResponseWrap} from '../models/response-models';
+import {PasswordModel} from '../models/account-models';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +46,23 @@ export class AccountService {
       }, error => {
         console.log(error);
       });
+
+  }
+
+  changePassword(passwordModel: PasswordModel) {
+    let userCreds = new LoginResponse();
+    userCreds = JSON.parse(localStorage.getItem('credentials'));
+
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': '*',
+        'Access-Control-Allow-Headers': '*',
+        Authorization: userCreds.tokenType + ' ' + userCreds.accessToken
+      })
+    };
+
+    return this.httpClient.post(Urls.changePasswordApiURL, passwordModel, this.httpOptions);
 
   }
 

@@ -1,0 +1,55 @@
+<div class="fixed-top-right">
+  <button [disabled]="disabled" type="button" class="btn btn-outline-dark" data-toggle="modal"
+          data-target="#startParking">
+    Yeni Araç Girişi
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="startParking" tabindex="-1" role="dialog" aria-labelledby="startParking"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Yeni Araç Girişi</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <form (submit)="startParking()" #parkingEventForm="ngForm">
+
+          <div class="modal-body">
+
+            <div *ngIf="hasError" class="alert alert-danger" role="alert">
+              <h4 class="alert-heading">Hata !</h4>
+              {{ message }}
+            </div>
+
+            <div *ngIf="isSuccess" class="alert alert-success" role="alert">
+              <h4 class="alert-heading">Başarılı !</h4>
+              Park işlemi başlatıldı.
+            </div>
+
+            <div class="tr-lincence">
+              <div class="blue-tr">
+                <strong>
+                  TR
+                </strong>
+              </div>
+              <input (input)="toUpperCaseLN()" type="text" class="form-control" id="inputStart" name="inputStart"
+                     maxlength="9" [(ngModel)]="licenseNumber.licenseNumber" autocomplete="off"
+                     [pattern]="regexp" placeholder="Araç Plakası" required>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+            <button type="submit" [disabled]="!parkingEventForm.valid" class="btn btn-success">Giriş</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

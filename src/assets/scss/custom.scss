@@ -12,7 +12,7 @@
   background-size: 85px;
   @include transition(all .3s ease-in-out);
   opacity: 0;
-  z-index: 999999;
+  z-index: 100;
 }
 
 .loading-screen.show {

@@ -1,6 +1,8 @@
 jQuery(function ($) {
 
-  $(".sidebar-dropdown > a").click(function() {
+  debugger;
+
+  $(".sidebar-dropdown > button").click(function() {
     $(".sidebar-submenu").slideUp(200);
     if (
       $(this)

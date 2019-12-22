@@ -47,6 +47,7 @@ export class LoginService {
         this.router.navigateByUrl('/dashboard');
       }, error => {
         console.log(error);
+        this.subject.next(error.error.error);
       });
   }
 

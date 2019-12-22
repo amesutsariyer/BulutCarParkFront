@@ -12,7 +12,7 @@ export class PricingPeriodComponent implements OnInit {
   itemId: any;
 
   constructor(public sidebarListener: ComponentListenerService) {
-    sidebarListener.sidebarCall.subscribe((res: any) => {
+    sidebarListener.componentCall.subscribe((res: any) => {
       if (res === 'pricing-periods-add') {
         this.active = 'add';
       } else if (res.indexOf('pricing-periods-update') >= 0) {

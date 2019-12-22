@@ -6,18 +6,18 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class ComponentListenerService {
 
-  private sidebarSubject: BehaviorSubject<any> = new BehaviorSubject<any>([]);
-  public sidebarCall = this.sidebarSubject.asObservable();
+  private componentSubject: BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  public componentCall = this.componentSubject.asObservable();
 
   constructor() {
   }
 
   next(moduleName: any, componentName: any) {
-    this.sidebarSubject.next(moduleName + '-' + componentName);
+    this.componentSubject.next(moduleName + '-' + componentName);
   }
 
   nextWithItemId(moduleName: any, componentName: any, itemId: any) {
-    this.sidebarSubject.next(moduleName + '-' + componentName + '-' + itemId);
+    this.componentSubject.next(moduleName + '-' + componentName + '-' + itemId);
   }
 
 }

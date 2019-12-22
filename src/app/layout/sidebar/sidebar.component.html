@@ -1,124 +1,145 @@
 <div class="page-wrapper chiller-theme toggled" style="font-family: 'Montserrat', sans-serif; font-size: 15px;">
-<nav id="sidebar" class="sidebar-wrapper">
-  <div class="sidebar-content">
-    <div class="sidebar-brand">
-      <a href="#">Bulut otopark</a>
-    </div>
-    <div class="sidebar-header">
-      <div class="user-info">
-          <span class="user-name">{{loggedUser.name}}
-            <strong>{{loggedUser.surname}}</strong>
-          </span>
-        <span class="user-role">{{loggedUser.role?.name}}</span>
-        <span class="user-role">{{loggedUser.identityNumber}}</span>
+  <nav id="sidebar" class="sidebar-wrapper">
+    <div class="sidebar-content">
+      <div class="sidebar-brand">
+        <a href="#">Bulut otopark</a>
       </div>
+      <div class="sidebar-header">
+        <div class="user-pic">
+          <img class="img-responsive img-rounded"
+               src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+               alt="User picture">
+        </div>
+        <div class="user-info">
+          <span class="user-name">{{loggedUser?.name}}
+            <strong>{{loggedUser?.surname}}</strong>
+          </span>
+          <span class="user-role">{{loggedUser?.role?.name}}</span>
+          <span class="user-role">{{loggedUser?.identityNumber}}</span>
+        </div>
+      </div>
+      <div class="sidebar-menu">
+        <ul>
+          <li class="header-menu">
+            <span>Menü</span>
+          </li>
+          <li>
+            <a routerLink="/dashboard">
+              <i class="fa fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+
+          <ng-container *ngIf="loggedUser.role?.name != 'USER'">
+            <li class="sidebar-dropdown">
+              <a [routerLink]="">
+                <i class="fa fa-code-branch"></i>
+                <span>Şubeler</span>
+                <!--<span class="badge badge-pill badge-danger">3</span>-->
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a routerLink="/branches">Tüm Şubeler</a>
+                  </li>
+                  <li>
+                    <a routerLink="/branches" (click)="routeWithComponent('branches','add')">Yeni Şube</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ng-container>
+
+          <ng-container *ngIf="loggedUser.role?.name != 'USER'">
+            <li class="sidebar-dropdown">
+              <a [routerLink]="">
+                <i class="fa fa-users"></i>
+                <span>Kullanıcılar</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a routerLink="/users">Tüm Kullanıcılar</a>
+                  </li>
+                  <li>
+                    <a routerLink="/users" (click)="routeWithComponent('users','add')">Yeni Kullanıcı</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ng-container>
+
+          <ng-container *ngIf="loggedUser.role?.name != 'USER'">
+            <li class="sidebar-dropdown">
+              <a [routerLink]="">
+                <i class="fa fa-lira-sign"></i>
+                <span>Fiyat Tarifeleri</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a routerLink="/pricings">Tüm Tarifeler</a>
+                  </li>
+                  <li>
+                    <a routerLink="/pricings" (click)="routeWithComponent('pricings','add')">Yeni Tarifesi</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ng-container>
+
+          <ng-container *ngIf="loggedUser.role?.name != 'USER'">
+            <li class="sidebar-dropdown">
+              <a [routerLink]="">
+                <i class="fa fa-clock"></i>
+                <span>Ödeme Periyotları</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a routerLink="/pricing-periods">Tüm Ödeme Periyotları</a>
+                  </li>
+                  <li>
+                    <a routerLink="/pricing-periods" (click)="routeWithComponent('pricing-periods','add')">Yeni Ödeme
+                      Periyotu</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ng-container>
+
+          <ng-container *ngIf="loggedUser.role?.name == 'USER'">
+            <li class="header-menu">
+              <span>Otopark Bilgileri</span>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-car"></i>
+                <span>Araç Kapasitesi</span>
+                <!--<span class="badge badge-pill badge-primary">Beta</span>-->
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-check"></i>
+                <span>Müsait Yer Sayısı</span>
+              </a>
+            </li>
+          </ng-container>
+
+        </ul>
+      </div>
+      <!-- sidebar-menu  -->
     </div>
-    <div class="sidebar-menu">
-      <ul>
-        <li class="header-menu">
-          <span>Menü</span>
-        </li>
-        <li>
-          <a routerLink="/dashboard">
-            <i class="fa fa-tachometer-alt"></i>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li class="sidebar-dropdown">
-          <a [routerLink]="">
-            <i class="fa fa-shopping-cart"></i>
-            <span>Şubeler</span>
-            <!--<span class="badge badge-pill badge-danger">3</span>-->
-          </a>
-          <div class="sidebar-submenu">
-            <ul>
-              <li>
-                <a routerLink="/branches">Tüm Şubeler</a>
-              </li>
-              <li>
-                <a routerLink="/branches" (click)="routeWithComponent('branches','add')">Yeni Şube</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="sidebar-dropdown">
-          <a [routerLink]="">
-            <i class="far fa-gem"></i>
-            <span>Kullanıcılar</span>
-          </a>
-          <div class="sidebar-submenu">
-            <ul>
-              <li>
-                <a routerLink="/users">Tüm Kullanıcılar</a>
-              </li>
-              <li>
-                <a routerLink="/users" (click)="routeWithComponent('users','add')">Yeni Kullanıcı</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="sidebar-dropdown">
-          <a [routerLink]="">
-            <i class="fa fa-globe"></i>
-            <span>Fiyat Tarifeleri</span>
-          </a>
-          <div class="sidebar-submenu">
-            <ul>
-              <li>
-                <a routerLink="/pricings">Tüm Tarifeler</a>
-              </li>
-              <li>
-                <a routerLink="/pricings" (click)="routeWithComponent('pricings','add')">Yeni Tarifesi</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="sidebar-dropdown">
-          <a [routerLink]="">
-            <i class="fa fa-chart-line"></i>
-            <span>Ödeme Periyotları</span>
-          </a>
-          <div class="sidebar-submenu">
-            <ul>
-              <li>
-                <a routerLink="/pricing-periods">Tüm Ödeme Periyotları</a>
-              </li>
-              <li>
-                <a routerLink="/pricing-periods" (click)="routeWithComponent('pricing-periods','add')">Yeni Ödeme
-                  Periyotu</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="header-menu">
-          <span>Otopark Bilgileri</span>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-book"></i>
-            <span>Araç Kapasitesi</span>
-            <!--<span class="badge badge-pill badge-primary">Beta</span>-->
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-calendar"></i>
-            <span>Müsait Yer Sayısı</span>
-          </a>
-        </li>
-      </ul>
+    <!-- sidebar-content  -->
+    <div class="sidebar-footer">
+      <a routerLink="/change-password">
+        <i class="fa fa-cog"></i>
+        <span class="badge-sonar"></span>
+      </a>
+      <a routerLink="/login" (click)="logout()">
+        <i class="fa fa-power-off"></i>
+      </a>
     </div>
-    <!-- sidebar-menu  -->
-  </div>
-  <!-- sidebar-content  -->
-  <div class="sidebar-footer">
-    <a href="#">
-      <i class="fa fa-cog"></i>
-      <span class="badge-sonar"></span>
-    </a>
-    <a routerLink="/login" (click)="logout()">
-      <i class="fa fa-power-off"></i>
-    </a>
-  </div>
-</nav>
+  </nav>
 </div>

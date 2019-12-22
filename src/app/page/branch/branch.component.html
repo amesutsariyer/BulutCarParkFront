@@ -1,19 +1,27 @@
-<p>branch works!</p>
+<!--<div class="btn-group" role="group" aria-label="Basic example">-->
+<div *ngIf="active == 'add' || active == 'update' || active == 'delete'">
+  <button type="button" class="btn btn-outline-info" (click)="openListComponent()">
+    <i class="fa fa-list"></i> Listeye Dön
+  </button>
+</div>
 <div *ngIf="active == 'list'">
-  <app-branch-list></app-branch-list>
+  <button type="button" class="btn btn-outline-info" (click)="openAddComponent()">
+    <i class="fa fa-plus"></i> Yeni Şube
+  </button>
 </div>
-<div *ngIf="active == 'add'">
-  <app-branch-add></app-branch-add>
-</div>
-<div *ngIf="active == 'update'">
-  <app-branch-update></app-branch-update>
-</div>
-<div *ngIf="active == 'delete'">
-  <app-branch-delete></app-branch-delete>
-</div>
-<div class="btn-group" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-secondary" (click)="openListComponent()">List</button>
-  <button type="button" class="btn btn-secondary" (click)="openAddComponent()">Add</button>
-  <button type="button" class="btn btn-secondary" (click)="openUpdateComponent()">Update</button>
-  <button type="button" class="btn btn-secondary" (click)="openDeleteComponent()">Delete</button>
+
+<!--</div>-->
+<div style="margin-top: 35px;">
+  <div *ngIf="active == 'list'">
+    <app-branch-list></app-branch-list>
+  </div>
+  <div *ngIf="active == 'add'">
+    <app-branch-add></app-branch-add>
+  </div>
+  <div *ngIf="active == 'update'">
+    <app-branch-update [id]="itemId"></app-branch-update>
+  </div>
+  <div *ngIf="active == 'delete'">
+    <app-branch-delete [id]="itemId"></app-branch-delete>
+  </div>
 </div>

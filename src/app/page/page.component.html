@@ -1,4 +1,3 @@
-<app-sidebar></app-sidebar>
 <div class="page-wrapper chiller-theme toggled" style="font-family: 'Montserrat', sans-serif; font-size: 15px;">
   <main class="page-content">
     <div *ngIf="activeChild == 'branch'">
@@ -16,7 +15,8 @@
     <div *ngIf="activeChild == 'pricing'">
       <app-pricing></app-pricing>
     </div>
+    <div *ngIf="activeChild == 'change-password'">
+      <app-change-password></app-change-password>
+    </div>
   </main>
 </div>
-
-

@@ -42,6 +42,16 @@ import {PricingAddComponent} from './page/pricing/pricing-add/pricing-add.compon
 import {PricingUpdateComponent} from './page/pricing/pricing-update/pricing-update.component';
 import {PricingDeleteComponent} from './page/pricing/pricing-delete/pricing-delete.component';
 import {CurrencyMaskModule} from 'ng2-currency-mask';
+import {PricingListModalComponent} from './components/pricing-list-modal/pricing-list-modal.component';
+import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
+import {StartParkingComponent} from './components/start-parking/start-parking.component';
+import {StopParkingComponent} from './components/stop-parking/stop-parking.component';
+import {NavbarComponent} from './layout/navbar/navbar.component';
+import {ChangePasswordComponent} from './components/change-password/change-password.component';
+import {ParkingEventListComponent} from './components/parking-event-list/parking-event-list.component';
+import {InvoiceListComponent} from './components/invoice-list/invoice-list.component';
+import {PasswordMatchDirective} from './directives/password-match.directive';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -69,9 +79,18 @@ import {CurrencyMaskModule} from 'ng2-currency-mask';
     PricingListComponent,
     PricingAddComponent,
     PricingUpdateComponent,
-    PricingDeleteComponent
+    PricingDeleteComponent,
+    PricingListModalComponent,
+    StartParkingComponent,
+    StopParkingComponent,
+    NavbarComponent,
+    ChangePasswordComponent,
+    ParkingEventListComponent,
+    InvoiceListComponent,
+    PasswordMatchDirective
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -88,6 +107,7 @@ import {CurrencyMaskModule} from 'ng2-currency-mask';
     RoleService,
     BranchService,
     UserService,
+    AngularMultiSelectModule,
     PricingPeriodService,
     {
       provide: HTTP_INTERCEPTORS,

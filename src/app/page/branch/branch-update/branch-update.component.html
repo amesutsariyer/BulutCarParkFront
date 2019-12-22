@@ -1,1 +1,63 @@
-<p>branch-update works!</p>
+<div class="container">
+
+  <div *ngIf="hasError" class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Hata !</h4>
+    {{ message }}
+  </div>
+  <div *ngIf="isSuccessful" class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Başarılı !</h4>
+    Şube başarıyla oluşturuldu.
+  </div>
+
+  <form (submit)="updateBranch()" #editBranchForm="ngForm" >
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="inputName">Şube Adı</label>
+        <input type="text" class="form-control" id="inputName" name="inputName"
+               placeholder="Şube adı giriniz" #name [(ngModel)]="branch.name" required>
+        <small id="nameHelp" class="form-text text-danger">* Şube Adı alanı zorunludur</small>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputParkPointCount">Park Alanı Sayısı</label>
+        <input type="text" class="form-control" id="inputParkPointCount"
+               #parkPointCount [(ngModel)]="branch.parkPointCount"
+               name="inputParkPointCount" placeholder="Park Alanı Sayısı giriniz" digitOnly required>
+        <small id="tcknHelp" class="form-text text-danger">* Park Alanı Sayısı alanı zorunludur</small>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputAddress">Adres</label>
+        <textarea type="text" class="form-control" id="inputAddress" name="inputAddress"
+                  style="min-height: 150px; max-height: 150px"
+                  placeholder="Adres giriniz" #address [(ngModel)]="branch.address" required>
+        </textarea>
+        <small id="addressHelp" class="form-text text-danger">* Adres alanı zorunludur</small>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="pricingListSelect">Fiyat Tarifeleri</label>
+        <select class="form-control" id="pricingListSelect" #pricingListSelect
+                name="pricingListSelect" [(ngModel)]="branch.pricingList"
+                [compareWith]="compareFn"
+                multiple required style="min-height: 150px">
+          <option *ngFor="let pricing of pricings" [ngValue]="pricing">
+            {{pricing.pricingPeriod.start}} -
+            {{pricing.pricingPeriod.end}} saat | Fiyat: {{pricing.price | currency: 'TRY':'symbol-narrow' }}
+          </option>
+        </select>
+        <small id="pricingHelp" class="form-text text-danger">* Fiyat tarifesi seçimi zorunludur. Toplam 24 saat
+          seçilmelidir.
+        </small>
+      </div>
+    </div>
+    <div class="col-md-6 p-0 row">
+      <div class="col-md-6">
+        <button type="submit" [disabled]="!editBranchForm.valid" class="btn btn-primary btn-block">Güncelle
+        </button>
+      </div>
+      <div class="col-md-6 pr-0">
+        <button type="reset" (click)="resetForm(editBranchForm)"
+                class="btn btn-warning btn-block">Temizle
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

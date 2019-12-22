@@ -1,0 +1,23 @@
+<div class="modal fade" id="pricingListModal-{{branch.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{branch.name}} Şubesi Fiyat Listesi</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let pricing of branch.pricingList">
+            {{pricing.pricingPeriod.start}} - {{pricing.pricingPeriod.end}} saat | Fiyat: {{pricing.price | currency: 'TRY':'symbol-narrow' }}
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>

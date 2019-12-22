@@ -4,6 +4,7 @@ import {User} from './user-models';
 
 export class ParkingEvent extends BaseModel {
 
+  licenseNumber: string;
   startDate: Date;
   endDate: Date;
   currentBranch: Branch;

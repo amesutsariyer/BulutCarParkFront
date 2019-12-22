@@ -3,6 +3,7 @@ import {Pricing} from '../../../models/pricing-models';
 import {Subject} from 'rxjs';
 import {ComponentListenerService} from '../../../services/component-listener.service';
 import {PricingService} from '../../../services/pricing.service';
+import {UtilVariables} from '../../../utils/util-variables';
 
 @Component({
   selector: 'app-pricing-list',
@@ -20,33 +21,7 @@ export class PricingListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 10,
-      dom: 'Bfrtip',
-      language: {
-        processing: 'İşleniyor...',
-        search: 'Arama:',
-        lengthMenu: 'Sayfa başına _MENU_ kayıt',
-        info: '_TOTAL_ öğenin _START_ ile _END_ arası gösteriliyor',
-        infoEmpty: 'Hiçbir öğe gösterilmiyor.',
-        infoFiltered: '(filtre uygulanmış toplam eleman: _MAX_ )',
-        infoPostFix: '',
-        loadingRecords: 'Kayıtlar yükleniyor ...',
-        zeroRecords: 'Kayıt bulunamadı',
-        emptyTable: 'Kayıt bulunamadı',
-        paginate: {
-          first: 'İlk',
-          previous: 'Önceki',
-          next: 'Sonraki',
-          last: 'Son'
-        },
-        aria: {
-          sortAscending: ': Tabloyu artan sırada sıralamak için etkinleştir',
-          sortDescending: ': Tabloyu azalan sırada sıralamak için etkinleştir'
-        }
-      }
-    };
+    this.dtOptions = UtilVariables.dtOptions;
     this.getAllPricingPeriods();
   }
 
