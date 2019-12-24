@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bulut-carpark": {
+    "kafein-orchestra": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bulut-carpark",
+            "outputPath": "dist/kafein-orchestra",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "bulut-carpark:build"
+            "browserTarget": "kafein-orchestra:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bulut-carpark:build:production"
+              "browserTarget": "kafein-orchestrak:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bulut-carpark:build"
+            "browserTarget": "kafein-orchestra:build"
           }
         },
         "test": {
@@ -115,15 +115,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "bulut-carpark:serve"
+            "devServerTarget": "kafein-orchestra:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "bulut-carpark:serve:production"
+              "devServerTarget": "kafein-orchestra:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "bulut-carpark"
+  "defaultProject": "kafein-orchestra"
 }

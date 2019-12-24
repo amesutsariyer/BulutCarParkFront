@@ -7,7 +7,7 @@ import {ComponentListenerService} from './services/component-listener.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'bulut-carpark';
+  title = 'Kafein Orchestra';
 
   constructor(public componentListener: ComponentListenerService, private cdr: ChangeDetectorRef) {
 
