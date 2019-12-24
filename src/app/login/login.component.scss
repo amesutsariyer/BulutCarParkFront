@@ -3,6 +3,7 @@ body {
   height: 100vh;
 }
 
+
 a {
   color: rgba(29, 38, 113, 1);
   display: inline-block;
@@ -23,9 +24,12 @@ h2 {
 
 .login-content {
   height: 100vh;
-  background: rgb(2, 0, 36);
-  //background-image: radial-gradient( circle farthest-corner at -3.1% -4.3%,  rgba(57,255,186,1) 0%, rgba(21,38,82,1) 90% );
-  background-image: linear-gradient(-225deg, #30D2BE 0%, #3584A7 35%, #473B7B 100%);
+  background: #3C3B3F;  /* fallback for old browsers */
+  background: #a8ff78;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #319275, #b2da9b);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,  #319275, #b2da9b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+
 }
 
 .wrapper {
@@ -76,7 +80,9 @@ h2.active {
 /* FORM TYPOGRAPHY*/
 
 input[type=button], input[type=submit], input[type=reset] {
-  background: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
+  background: #000000;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #5c93a8, #65c76c);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #5c93a8, #65c76c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border: none;
   color: white;
   padding: 15px 80px;
@@ -89,16 +95,20 @@ input[type=button], input[type=submit], input[type=reset] {
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   margin: 5px 20px 40px 20px;
+  
+}
+
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+  // background: #000000;  /* fallback for old browsers */
+  // background: -webkit-linear-gradient(to right, #c0c0c0, #706d6d);  /* Chrome 10-25, Safari 5.1-6 */
+  // background: linear-gradient(to right, #c0c0c0, #706d6d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-}
-
-input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
-  background: linear-gradient(-225deg, #473B7B 0%, #3584A7 51%, #30D2BE 100%);
   opacity: 1;
+  cursor: pointer;
 }
 
 input[type=button]:active, input[type=submit]:active, input[type=reset]:active {
@@ -113,7 +123,7 @@ input[type=text] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
-  padding: 15px 32px;
+   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -129,7 +139,16 @@ input[type=text] {
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
 }
-
+input[type=text]:hover {
+  background-color:rgba(56, 51, 51, 0.212);
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+ 
+}
 input[type=text]:focus {
   background-color: #fff;
   border-bottom: 2px solid rgba(29, 38, 113, 1);
@@ -143,7 +162,7 @@ input[type=password] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
-  padding: 15px 32px;
+   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -159,7 +178,16 @@ input[type=password] {
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
 }
-
+input[type=password]:hover {
+  background-color:rgba(56, 51, 51, 0.212);
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-border-radius: 5px 5px 5px 5px;
+ 
+}
 input[type=password]:focus {
   background-color: #fff;
   border-bottom: 2px solid rgba(29, 38, 113, 1);
@@ -301,6 +329,10 @@ input[type=password]:placeholder {
 }
 
 #icon {
-  width: 35%;
+  width: 20%;
   margin-top: 20px;
+}
+.text-color-black {
+  color:black;
+  font-size: 0.8em;
 }
