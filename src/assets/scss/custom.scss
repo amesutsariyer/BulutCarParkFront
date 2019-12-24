@@ -10,8 +10,9 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 85px;
-  @include transition(all .3s ease-in-out);
+  // @include transition(all .3s ease-in-out);
   opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
   z-index: 100;
 }
 
